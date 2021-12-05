@@ -24,9 +24,10 @@ public class Cars {
         return winner.get().getFinalPosition();
     }
 
-    public List<Car> getWinners() {
+    public List<String> getWinnersName() {
         int winnerPosition = getFinalMaxPosition();
         return carList.stream().filter(v -> v.getFinalPosition() == winnerPosition)
+                .map(Car::getName)
                 .collect(Collectors.toList());
     }
 }
