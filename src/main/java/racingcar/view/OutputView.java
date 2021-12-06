@@ -26,8 +26,11 @@ public class OutputView {
         System.out.println(e.getMessage());
     }
 
-    public void printProgress(Cars carList) {
+    public static void printResultMessage() {
         System.out.println(RESULT_MESSAGE);
+    }
+
+    public void printProgress(Cars carList) {
         List<Car> currentCars = carList.getCurrentCars();
 
         for (Car car : currentCars) {
@@ -36,8 +39,9 @@ public class OutputView {
             for (int i = 0; i < car.getFinalPosition(); i++) {
                 carProgressBar.append(PROGRESS_BAR);
             }
-            System.out.println(carProgressBar.toString()+NEW_LINE);
+            System.out.println(carProgressBar.toString());
         }
+        System.out.print(NEW_LINE);
     }
 
     public void printFinalWinners(List<String> winners) {
