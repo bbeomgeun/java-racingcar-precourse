@@ -30,4 +30,8 @@ public class Cars {
                 .map(Car::getName)
                 .collect(Collectors.toList());
     }
+
+    public List<Car> getCurrentCars() {
+        return this.carList;
+    }
 }
