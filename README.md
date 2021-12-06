@@ -9,8 +9,8 @@
 ### Controller
 - GameController
   - 게임의 흐름을 제어한다.
-  - [ ] 게임 시작 기능
-  - [ ] 입력, 진행, 출력을 담당
+  - [x] 게임 시작 기능
+  - [x] 입력, 진행, 출력을 담당
 
 ### View
 - InputView
