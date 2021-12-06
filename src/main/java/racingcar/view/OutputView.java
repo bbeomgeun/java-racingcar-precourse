@@ -22,6 +22,10 @@ public class OutputView {
         System.out.println(REQUEST_COUNT_MESSAGE);
     }
 
+    public static void printErrorMessage(Exception e) {
+        System.out.println(e.getMessage());
+    }
+
     public void printProgress(Cars carList) {
         System.out.println(RESULT_MESSAGE);
         List<Car> currentCars = carList.getCurrentCars();
