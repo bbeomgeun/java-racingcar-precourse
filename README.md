@@ -3,8 +3,8 @@
 ## 구현할 기능 목록
 
 - 프로그램 실행 -> Application.class
-  - [ ] 메서드의 길이가 15라인을 넘어가지 않게
-  - [ ] else 예약어 사용 X
+  - [x] 메서드의 길이가 15라인을 넘어가지 않게
+  - [x] else 예약어 사용 X
 
 ### Controller
 - GameController
