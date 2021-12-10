@@ -16,35 +16,25 @@ public class GameController {
     }
 
     private void inputNameStr() {
-        boolean validFlag;
         while (true) {
             try {
-                validFlag = true;
                 OutputView.printStartMessage();
                 cars = new Cars(InputView.input());
+                return;
             } catch (IllegalArgumentException exception) {
                 OutputView.printErrorMessage(exception);
-                validFlag = false;
-            }
-            if (validFlag) {
-                return;
             }
         }
     }
 
     private void inputCount() {
-        boolean validFlag;
         while (true) {
             try {
-                validFlag = true;
                 OutputView.printRequestMessage();
                 iterationCount = new IterationCount(InputView.input());
+                return;
             } catch (IllegalArgumentException exception) {
                 OutputView.printErrorMessage(exception);
-                validFlag = false;
-            }
-            if (validFlag) {
-                return;
             }
         }
     }
