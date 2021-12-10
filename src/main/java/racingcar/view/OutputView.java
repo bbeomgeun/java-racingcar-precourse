@@ -30,7 +30,7 @@ public class OutputView {
         System.out.println(RESULT_MESSAGE);
     }
 
-    public void printProgress(Cars carList) {
+    public static void printProgress(Cars carList) {
         List<Car> currentCars = carList.getCurrentCars();
 
         for (Car car : currentCars) {
@@ -44,7 +44,7 @@ public class OutputView {
         System.out.print(NEW_LINE);
     }
 
-    public void printFinalWinners(List<String> winners) {
+    public static void printFinalWinners(List<String> winners) {
         System.out.println(FINAL_WINNER_MESSAGE+String.join(DELIMITER, winners));
     }
 }

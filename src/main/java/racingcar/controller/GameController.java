@@ -6,13 +6,8 @@ import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 public class GameController {
-    private final OutputView outputView;
     private IterationCount iterationCount;
     private Cars cars;
-
-    public GameController(OutputView outputView) {
-        this.outputView = outputView;
-    }
 
     public void run() {
         inputNameStr();
@@ -38,7 +33,7 @@ public class GameController {
     }
 
     private void inputCount() {
-        boolean validFlag = true;
+        boolean validFlag;
         while (true) {
             try {
                 validFlag = true;
@@ -58,8 +53,8 @@ public class GameController {
         OutputView.printResultMessage();
         for (int gameCount = 0; gameCount < iterationCount.getIterationCount(); gameCount++) {
             cars.moveAllCar();
-            outputView.printProgress(cars);
+            OutputView.printProgress(cars);
         }
-        outputView.printFinalWinners(cars.getWinnersName());
+        OutputView.printFinalWinners(cars.getWinnersName());
     }
 }
