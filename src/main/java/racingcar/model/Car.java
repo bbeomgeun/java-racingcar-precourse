@@ -22,7 +22,7 @@ public class Car {
     }
 
     private boolean isValidInput(String name) {
-        return isValidSize(name);
+        return isValidSize(name) && !isBlankString(name);
     }
 
     private boolean isValidSize(String name) {
@@ -30,6 +30,13 @@ public class Car {
             return true;
         }
         throw new IllegalArgumentException("[ERROR] 자동차의 이름은 1자 이상 5자 이하만 가능합니다.");
+    }
+
+    private boolean isBlankString(String name) {
+        if (name.chars().allMatch(Character::isWhitespace)) {
+            throw new IllegalArgumentException("[ERROR] 이름이 공백이면 안됩니다.");
+        }
+        return false;
     }
 
     public void moveForward() {
