@@ -12,7 +12,7 @@ public class Car {
     private final String name;
     private int position = 0;
 
-    public Car(String name) throws IllegalArgumentException {
+    public Car(String name) {
         if (!isValidInput(name)) {
             throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
         }
