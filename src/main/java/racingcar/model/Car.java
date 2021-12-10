@@ -13,18 +13,22 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        if (!isValidInput(name)) {
-            throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
+        if (isValidInput(name)) {
+            this.name = name;
+        } else {
+            this.name = null;
         }
-        this.name = name;
-    } // TODO : 상위에서 Try catch로 받아주기
+    }
 
     private boolean isValidInput(String name) {
         return isValidSize(name);
     }
 
     private boolean isValidSize(String name) {
-        return name.length() <= MAX_NAME_SIZE && name.length() >= MIN_NAME_SIZE;
+        if (name.length() <= MAX_NAME_SIZE && name.length() >= MIN_NAME_SIZE) {
+            return true;
+        }
+        throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
     }
 
     public void moveForward() {
