@@ -2,12 +2,13 @@ package racingcar.model;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
+import java.util.Objects;
+
 public class Car {
     private static final int MIN_NAME_SIZE = 1;
     private static final int MAX_NAME_SIZE = 5;
     private static final int START_NUMBER_RANGE = 0;
     private static final int END_NUMBER_RANGE = 9;
-    private static final String NAME_ERROR_MESSAGE = "[ERROR] 자동차의 이름은 1자 이상 5자 이하만 가능합니다.";
 
     private final String name;
     private int position = 0;
@@ -28,17 +29,13 @@ public class Car {
         if (name.length() <= MAX_NAME_SIZE && name.length() >= MIN_NAME_SIZE) {
             return true;
         }
-        throw new IllegalArgumentException(NAME_ERROR_MESSAGE);
+        throw new IllegalArgumentException("[ERROR] 자동차의 이름은 1자 이상 5자 이하만 가능합니다.");
     }
 
     public void moveForward() {
         if (isMovingCondition()) {
             this.position++;
         }
-    }
-
-    public boolean isMoving() {
-        return isMovingCondition();
     }
 
     private boolean isMovingCondition() {
@@ -51,5 +48,18 @@ public class Car {
 
     public String getName() {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return position == car.position && Objects.equals(name, car.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, position);
     }
 }
