@@ -31,6 +31,6 @@ public class Cars {
     }
 
     public List<Car> getCurrentCars() {
-        return this.carList;
+        return Collections.unmodifiableList(this.carList);
     }
 }
