@@ -27,17 +27,17 @@ public class Car {
         return name.length() <= MAX_NAME_SIZE && name.length() >= MIN_NAME_SIZE;
     }
 
-    public void movingForward() {
-        if (movingCondition()) {
+    public void moveForward() {
+        if (isMovingCondition()) {
             this.position++;
         }
     }
 
     public boolean isMoving() {
-        return movingCondition();
+        return isMovingCondition();
     }
 
-    private boolean movingCondition() {
+    private boolean isMovingCondition() {
         return Randoms.pickNumberInRange(START_NUMBER_RANGE, END_NUMBER_RANGE) >= 4;
     }
 

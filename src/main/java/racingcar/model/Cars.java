@@ -15,7 +15,7 @@ public class Cars {
     }
 
     public void moveAllCar() {
-        carList.forEach(Car::movingForward);
+        carList.forEach(Car::moveForward);
     }
 
     private int getFinalMaxPosition() {
