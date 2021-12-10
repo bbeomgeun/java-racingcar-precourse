@@ -3,7 +3,7 @@ package racingcar.model;
 public class IterationCount {
     private final int iterationCount;
 
-    public IterationCount(String iterationCount) throws IllegalArgumentException {
+    public IterationCount(String iterationCount) {
         if (!isNumber(iterationCount)) {
             throw new IllegalArgumentException("[ERROR] 시도 횟수는 숫자여야 한다.");
         }
