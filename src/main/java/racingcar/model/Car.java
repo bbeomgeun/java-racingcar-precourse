@@ -14,29 +14,25 @@ public class Car {
     private int position = 0;
 
     public Car(String name) {
-        if (isValidInput(name)) {
-            this.name = name;
-        } else {
-            this.name = null;
+        isValidInput(name);
+        this.name = name;
+    }
+
+    private void isValidInput(String name) {
+        isValidSize(name);
+        isBlankString(name);
+    }
+
+    private void isValidSize(String name) {
+        if (name.length() > MAX_NAME_SIZE || name.length() < MIN_NAME_SIZE) {
+            throw new IllegalArgumentException("[ERROR] 자동차의 이름은 1자 이상 5자 이하만 가능합니다.");
         }
     }
 
-    private boolean isValidInput(String name) {
-        return isValidSize(name) && !isBlankString(name);
-    }
-
-    private boolean isValidSize(String name) {
-        if (name.length() <= MAX_NAME_SIZE && name.length() >= MIN_NAME_SIZE) {
-            return true;
-        }
-        throw new IllegalArgumentException("[ERROR] 자동차의 이름은 1자 이상 5자 이하만 가능합니다.");
-    }
-
-    private boolean isBlankString(String name) {
+    private void isBlankString(String name) {
         if (name.chars().allMatch(Character::isWhitespace)) {
             throw new IllegalArgumentException("[ERROR] 이름이 공백이면 안됩니다.");
         }
-        return false;
     }
 
     public void moveForward() {

@@ -10,21 +10,17 @@ public class Cars {
         List<Car> carList = Arrays.stream(carStr.split(","))
                 .map(Car::new)
                 .collect(Collectors.toList());
-        if (isValidCars(carList)) {
-            this.carList = carList;
-        } else {
-            this.carList = null;
-        }
+        isValidCars(carList);
+        this.carList = carList;
     }
 
-    private boolean isValidCars(List<Car> carList) {
+    private void isValidCars(List<Car> carList) {
         long count = carList.stream()
                 .distinct()
                 .count();
-        if (count == carList.size()) {
-            return true;
+        if (count != carList.size()) {
+            throw new IllegalArgumentException("[ERROR] 자동차의 이름은 중복되면 안됩니다.");
         }
-        throw new IllegalArgumentException("[ERROR] 자동차의 이름은 중복되면 안됩니다.");
     }
 
     public void moveAllCar() {
@@ -40,9 +36,10 @@ public class Cars {
     }
 
     private int getFinalMaxPosition() {
-        Optional<Car> winner = carList.stream()
-                .max(Comparator.comparingInt(Car::getFinalPosition));
-        return winner.orElseThrow(NoSuchElementException::new).getFinalPosition();
+        return carList.stream()
+                .max(Comparator.comparingInt(Car::getFinalPosition))
+                .orElseThrow(NoSuchElementException::new)
+                .getFinalPosition();
     }
 
     public List<Car> getCurrentCars() {
